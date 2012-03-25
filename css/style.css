@@ -1,0 +1,481 @@
+/* =============================================================================
+	 Chrome Frame Prompt
+	 ========================================================================== */
+
+.chromeframe { margin: 0.2em 0; background: #ccc; color: black; padding: 0.2em 0; }
+
+
+/* ==|== primary styles =====================================================
+	 Author: Jeremy Worboys <jeremy@complexcompulsions.com>
+	 ========================================================================== */
+
+/* Body and structure
+-------------------------------------------------- */
+body {
+	padding-top: 90px;
+	position: relative;
+}
+
+.h1,.h2,.h3,.h4,.h5,.h6{margin:0;font-family:inherit;font-weight:bold;color:inherit;text-rendering:optimizelegibility;}
+.h1 small,.h2 small,.h3 small,.h4 small,.h5 small,.h6 small{font-weight:normal;color:#999999;}
+.h1{font-size:30px;line-height:36px;}.h1 small{font-size:18px;}
+.h2{font-size:24px;line-height:36px;}.h2 small{font-size:18px;}
+.h3{line-height:27px;font-size:18px;}.h3 small{font-size:14px;}
+.h4,.h5,.h6{line-height:18px;}
+.h4{font-size:14px;}.h4 small{font-size:12px;}
+.h5{font-size:12px;}
+.h6{font-size:11px;color:#999999;text-transform:uppercase;}
+
+h1, .h1, h2, .h2, h3, .h3,
+h4, .h4, h5, .h5, h6, .h6,
+p, dd {
+	margin-bottom: 0.75em;
+	margin-top: 0.75em;
+}
+
+dl {
+	margin-bottom: 0;
+	margin-top: 0;
+}
+/*li li:first-child {
+	margin-top: 0.75em;
+}*/
+
+.label {
+	display: inline-block;
+	margin-top: -2px;
+}
+
+/* Tweak navbar brand link to be super sleek
+-------------------------------------------------- */
+.navbar-fixed-top li {
+	margin: 0;
+}
+.navbar-fixed-top .brand {
+	color: #000;
+	float: right;
+	font-weight: bold;
+	margin-left: 20px;
+	padding-right: 0;
+	padding-left: 0;
+	text-shadow: 0 1px 0 rgba(255,255,255,.1), 0 0 30px rgba(255,255,255,.125);
+	-webkit-transition: all .2s linear;
+	   -moz-transition: all .2s linear;
+	        transition: all .2s linear;
+}
+	.navbar-fixed-top .brand:hover {
+		color: #1a1a1a;
+		text-decoration: none;
+		text-shadow: 0 1px 0 rgba(255,255,255,.175), 0 0 30px rgba(255,255,255,.2);
+	}
+
+
+/* Header
+-------------------------------------------------- */
+header {
+	text-align: center;
+}
+	header h1 {
+		font-size: 81px;
+		font-weight: bold;
+		letter-spacing: -1px;
+		line-height: 1;
+		margin-bottom: 18px;
+		margin-top: 0;
+	}
+	header p {
+		font-size: 30px;
+		font-weight: 300;
+		line-height: 36px;
+		margin-left: 5%;
+		margin-right: 5%;
+		margin-bottom: 18px;
+	}
+	header .btn-large {
+		-webkit-border-radius: 6px;
+		   -moz-border-radius: 6px;
+		        border-radius: 6px;
+		font-size: 20px;
+		font-weight: normal;
+		margin-right: 10px;
+		padding: 14px 24px;
+	}
+	header .btn-large small {
+		font-size: 14px;
+	}
+
+
+/* Quick links
+-------------------------------------------------- */
+.bs-links {
+	margin: 36px 0 0;
+}
+.quick-links {
+	min-height: 30px;
+	margin: 0;
+	padding: 5px 20px;
+	list-style: none;
+	text-align: center;
+	overflow: hidden;
+}
+.quick-links:first-child {
+	min-height: 0;
+}
+.quick-links li {
+	display: inline;
+	margin: 0 5px;
+	color: #999;
+}
+.quick-links .github-btn,
+.quick-links .tweet-btn,
+.quick-links .follow-btn {
+	position: relative;
+	top: 5px;
+}
+
+
+/* Faded out hr
+-------------------------------------------------- */
+hr.soften {
+	height: 1px;
+	margin: 54px 0;
+	background-image: -webkit-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,.1), rgba(0,0,0,0));
+	background-image:    -moz-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,.1), rgba(0,0,0,0));
+	background-image:     -ms-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,.1), rgba(0,0,0,0));
+	background-image:      -o-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,.1), rgba(0,0,0,0));
+	border: 0;
+}
+
+
+/* Footer
+-------------------------------------------------- */
+footer {
+	margin-top: 45px;
+	padding: 35px 0 36px;
+	border-top: 1px solid #e5e5e5;
+}
+	footer p {
+		margin-bottom: 0;
+		color: #555;
+	}
+
+
+/* Pretty code
+-------------------------------------------------- */
+pre.prettyprint {
+	background-color: #f7f7f9;
+	border: 1px solid #e1e1e8;
+	margin: 1em 0;
+	white-space: pre;
+}
+	.linenums {
+		counter-reset: linenum;
+		margin-left: 0;
+	}
+		.linenums li, .linenums li:first-child {
+			margin: 0;
+		}
+		.linenums li {
+			counter-increment: linenum;
+			list-style: none;
+			display: table-row;
+		}
+			.linenums li:before {
+				content: counter(linenum)". ";
+			}
+
+
+/* iPhone demo
+-------------------------------------------------- */
+.no-backgroundsize .iphone-demo {
+	display: none;
+}
+
+/* Preload high-res image */
+.backgroundsize .brand {
+	background: url("../img/high-res.png") no-repeat -9999px -9999px;
+}
+
+
+.iphone-demo {
+	margin: -75px 0 0 50px;
+	text-align: center;
+}
+	.iphone-demo .h3 {
+		display: block;
+		margin: 0.75em 0;
+	}
+.iphone,
+.iphone:before,
+.iphone:after {
+	-webkit-background-size: 100% 100%;               /* Safari 3.0 */
+	   -moz-background-size: 100% 100%;               /* Gecko 1.9.2 (Firefox 3.6) */
+	     -o-background-size: 100% 100%;               /* Opera 9.5 */
+	        background-size: 100% 100%;               /* Gecko 2.0 (Firefox 4.0) and other CSS3-compliant browsers */
+}
+.backgroundsize .iphone {
+	background-image:  url("../img/iPhone.png");
+	-moz-border-image: url("../img/iPhone.png") 0; /* Gecko 1.9.1 (Firefox 3.5) */
+	height: 748px;
+	margin: 0 auto;
+	position: relative;
+	width: 379px;
+}
+	.backgroundsize .iphone:before {
+		background-image:  url("../img/low-res.png");
+		-moz-border-image: url("../img/low-res.png") 0; /* Gecko 1.9.1 (Firefox 3.5) */
+		content: "";
+		height: 480px;
+		position: absolute;
+		left: 31px;
+		top: 132px;
+		width: 320px;
+	}
+		.backgroundsize .iphone:hover:before {
+			background-image:  url("../img/high-res.png");
+			-moz-border-image: url("../img/high-res.png") 0; /* Gecko 1.9.1 (Firefox 3.5) */
+		}
+	.backgroundsize .iphone:after {
+		background-image:  url("../img/reflection.png");
+		-moz-border-image: url("../img/reflection.png") 0; /* Gecko 1.9.1 (Firefox 3.5) */
+		content: "";
+		height: 592px;
+		position: absolute;
+		right: 0;
+		top: 0;
+		width: 199px;
+	}
+
+
+/* Demos
+-------------------------------------------------- */
+.no-backgroundsize .display-demo {
+	display: block;
+}
+
+.display-demo,
+.filename-demo {
+	text-align: center;
+}
+	.display-demo figure,
+	.filename-demo figure {
+		margin: 0;
+	}
+	.display-demo figure {
+		margin-top: 1.50em;
+	}
+		.display-demo figcaption,
+		.filename-demo figcaption {
+			font-size: 14px;
+			font-weight: bold;
+			margin-top: 0.5em;
+		}
+			.display-demo figcaption small,
+			.filename-demo figcaption small {
+				display: block;
+				font-size: 12px;
+				font-weight: normal;
+			}
+	.filename-demo .small figure {
+		padding-top: 59px;
+	}
+
+
+
+/* Media queries
+-------------------------------------------------- */
+@media (max-width: 1180px) {}
+
+
+@media (max-width: 980px) {
+
+	/* Unfloat brand */
+	.navbar-fixed-top .brand {
+		float: left;
+		margin-left: 0;
+		padding-left: 10px;
+		padding-right: 10px;
+	}
+
+	/* Inline-block quick links for more spacing */
+	.quick-links li {
+		display: inline-block;
+		margin: 5px;
+	}
+
+	/* Stop the CSS intructions from floating as it gets cramped */
+	.setupcss .span4 {
+		float: none;
+		width: 100%;
+	}
+}
+
+
+@media (max-width: 980px) {
+
+	/* Remove any padding from the body */
+	body {
+		padding-top: 0;
+	}
+
+	/* Scale down the headline */
+	header h1 {
+		font-size: 72px;
+	}
+
+}
+
+
+@media (max-width: 768px) {
+
+	/* Scale down the header content */
+	header h1 {
+		font-size: 54px;
+	}
+	header p {
+		margin-right: 0;
+		margin-left: 0;
+	}
+
+	/* Header buttons */
+	header .btn {
+		margin-bottom: 10px;
+	}
+
+	/* Unfloat the back to top links */
+	.back-to-top {
+		float: none;
+		margin-bottom: 9px;
+	}
+
+	/* Keep columns in demos */
+	.display-demo,
+	.filename-demo {
+		display: table;
+		margin-left: auto;
+		margin-right: auto;
+	}
+	.display-demo .span5,
+	.filename-demo .span5 {
+		float: left;
+		max-width: 220px;
+	}
+
+}
+@media (max-width: 480px) {
+
+	/* Change up some type stuff */
+	h2, .h2 {
+		margin-top: 27px;
+	}
+	h2 small, .h2 small {
+		display: block;
+		line-height: 18px;
+	}
+	h3, .h3 {
+		margin-top: 18px;
+	}
+
+	/* Adjust the header */
+	header {
+		padding-top: 0;
+	}
+		header h1,
+		header p {
+			text-align: center;
+			margin-right: 0;
+		}
+		header h1 {
+			font-size: 45px;
+			margin-right: 0;
+		}
+		header p {
+			margin-right: 0;
+			margin-left: 0;
+			font-size: 18px;
+			line-height: 24px;
+		}
+		header .btn {
+			display: block;
+			font-size: 18px;
+			padding: 10px 14px;
+			margin: 0 auto 10px;
+		}
+
+	/* Don't space out quick links so much */
+	.quick-links {
+		margin: 10px 0 0;
+	}
+	/* hide the bullets on mobile since our horizontal space is limited */
+	.quick-links .divider {
+		display: none;
+	}
+
+	/* Drop columns and center file example */
+	.display-demo .span5,
+	.filename-demo .span5 {
+		float: none;
+		max-width: 280px;
+		margin: 0 auto 18px;
+		width: auto;
+	}
+		.display-demo .non-retina figure,
+		.filename-demo .small figure {
+			padding-top: 0;
+			margin-bottom: 0.75em;
+		}
+
+	/* Thanks title is too long */
+	.thanks h1 :first-child {
+		display: none;
+	}
+
+}
+
+
+
+/* ==|== non-semantic helper classes ========================================
+	 Please define your styles before this section.
+	 ========================================================================== */
+
+/* For image replacement */
+.ir { border:0; font: 0/0 a; text-shadow: none; color: transparent; background-color: transparent; }
+
+/* Hide from both screenreaders and browsers: h5bp.com/u */
+.hidden { display: none !important; visibility: hidden; }
+
+/* Hide only visually, but have it available for screenreaders: h5bp.com/v */
+.visuallyhidden { border: 0; clip: rect(0 0 0 0); height: 1px; margin: -1px; overflow: hidden; padding: 0; position: absolute; width: 1px; }
+
+/* Extends the .visuallyhidden class to allow the element to be focusable when navigated to via the keyboard: h5bp.com/p */
+.visuallyhidden.focusable:active, .visuallyhidden.focusable:focus { clip: auto; height: auto; margin: 0; overflow: visible; position: static; width: auto; }
+
+/* Hide visually and from screenreaders, but maintain layout */
+.invisible { visibility: hidden; }
+
+/* Contain floats: h5bp.com/q */
+.clearfix:before, .clearfix:after { content: ""; display: table; }
+.clearfix:after { clear: both; }
+.clearfix { *zoom: 1; }
+
+
+
+/* ==|== print styles =======================================================
+	 Print styles.
+	 Inlined to avoid required HTTP connection: h5bp.com/r
+	 ========================================================================== */
+
+@media print {
+	* { background: transparent !important; color: black !important; box-shadow:none !important; text-shadow: none !important; filter:none !important; -ms-filter: none !important; } /* Black prints faster: h5bp.com/s */
+	a, a:visited { text-decoration: underline; }
+	a[href]:after { content: " (" attr(href) ")"; }
+	abbr[title]:after { content: " (" attr(title) ")"; }
+	.ir a:after, a[href^="javascript:"]:after, a[href^="#"]:after { content: ""; }	/* Don't show links for images, or javascript/internal links */
+	pre, blockquote { border: 1px solid #999; page-break-inside: avoid; }
+	thead { display: table-header-group; } /* h5bp.com/t */
+	tr, img { page-break-inside: avoid; }
+	img { max-width: 100% !important; }
+	@page { margin: 0.5cm; }
+	p, h2, h3 { orphans: 3; widows: 3; }
+	h2, h3 { page-break-after: avoid; }
+}

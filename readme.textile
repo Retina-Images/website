@@ -1,0 +1,7 @@
+h1. Retina Images
+
+This branch holds the code for "http://retina-images.complexcompulsions.com":http://retina-images.complexcompulsions.com for more information visit this site or switch to the <code>master</code> branch to see the source.
+
+h2. License
+
+Retina Images by Jeremy Worboys is licensed under a "Creative Commons Attribution 3.0 Unported License":http://creativecommons.org/licenses/by/3.0/
