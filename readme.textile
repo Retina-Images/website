@@ -1,6 +1,6 @@
 h1. Retina Images
 
-This branch holds the code for "http://retina-images.complexcompulsions.com":http://retina-images.complexcompulsions.com for more information visit this site or switch to the <code>master</code> branch to see the source.
+This repo holds the code for "http://retina-images.complexcompulsions.com":http://retina-images.complexcompulsions.com for more information visit this site.
 
 h2. License
 
