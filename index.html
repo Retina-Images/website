@@ -32,6 +32,15 @@
 			 Modernizr enables HTML5 elements & feature detects for optimal performance.
 			 Create your own custom Modernizr build: www.modernizr.com/download/ -->
 	<script src="js/libs/modernizr-2.5.3.min.js"></script>
+
+	<!-- Asynchronous Google Analytics snippet. Change UA-XXXXX-X to be your site's ID.
+			 mathiasbynens.be/notes/async-analytics-snippet -->
+	<script>
+		var _gaq=[['_setAccount','UA-30234355-1'],['_trackPageview']];
+		(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+		g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+		s.parentNode.insertBefore(g,s)}(document,'script'));
+	</script>
 </head>
 <body id="home" onload="prettyPrint();" data-spy="scroll">
 	<noscript><style id="devicePixelRatio" media="only screen and (-moz-min-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2/1), only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min-device-pixel-ratio: 2)">#devicePixelRatio{background-image:url("retinaimages.php?devicePixelRatio=2")}</style></noscript>
@@ -72,8 +81,8 @@
 				<h1>Retina Images</h1>
 				<p>Automatically serve high-res images, to those who'll appreciate them.</p>
 				<p class="download-info">
-					<a href="https://github.com/Retina-Images/Retina-Images/" class="btn btn-primary btn-large">View project <span class="hidden-phone">on GitHub</span></a>
-					<a href="https://github.com/Retina-Images/Retina-Images/zipball/master" class="btn btn-large">Download <span class="hidden-phone">Retina Images</span> <small>(v1.0)</small></a>
+					<a href="https://github.com/Retina-Images/Retina-Images/" onClick="javascript: _gaq.push(['_trackPageview', '/GH/view']);" class="btn btn-primary btn-large">View project <span class="hidden-phone">on GitHub</span></a>
+					<a href="https://github.com/Retina-Images/Retina-Images/zipball/master" onClick="javascript: _gaq.push(['_trackPageview', '/GH/zipball']);" class="btn btn-large">Download <span class="hidden-phone">Retina Images</span> <small>(v1.0)</small></a>
 				</p>
 			</div> 
 
@@ -323,14 +332,5 @@ only screen and (min-device-pixel-ratio: 2)) {
 	<script src="js/prettify.js"></script>
 	<script src="js/plugins.js"></script>
 	<script src="js/script.js"></script>
-
-	<!-- Asynchronous Google Analytics snippet. Change UA-XXXXX-X to be your site's ID.
-			 mathiasbynens.be/notes/async-analytics-snippet -->
-	<script>
-		var _gaq=[['_setAccount','UA-30234355-1'],['_trackPageview']];
-		(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
-		g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
-		s.parentNode.insertBefore(g,s)}(document,'script'));
-	</script>
 </body>
 </html>
