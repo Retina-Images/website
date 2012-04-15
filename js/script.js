@@ -1,4 +1,4 @@
-/* 
+/*
 	Author: Jeremy Worboys <jeremy@complexcompulsions.com>
 */
 
