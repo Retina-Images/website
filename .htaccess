@@ -461,13 +461,14 @@ AddCharset utf-8 .css .js .xml .json .rss .atom
 # Block access to "hidden" directories whose names begin with a period. This
 # includes directories used by version control systems such as Subversion or Git.
 <IfModule mod_rewrite.c>
+  RewriteBase /website/publish
+
   RewriteCond %{SCRIPT_FILENAME} -d
   RewriteCond %{SCRIPT_FILENAME} -f
   RewriteRule "(^|/)\." - [F]
 
   # Retina Images script redirect
   RewriteRule \.(?:jpe?g|gif|png|bmp)$ retinaimages.php
-
 </IfModule>
 
 
