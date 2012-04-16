@@ -21,7 +21,7 @@
 
 	<script>document.cookie='devicePixelRatio='+((window.devicePixelRatio === undefined) ? 1 : window.devicePixelRatio)+'; path=/';</script>
 
-	<link rel="stylesheet" href='css/db90b07.css'>
+	<link rel="stylesheet" href='css/c22ff94.css'>
 
 	<!-- More ideas for your <head> here: h5bp.com/d/head-Tips -->
 
@@ -182,11 +182,11 @@
 		<section>
 			<p class="pull-right back-to-top"><a href="#home">Back to top</a></p>
 			<h1>CSS Images</h1>
-			<p>CSS images will usually require some work, below are the three of the best methods to contain your retina background images.</p>
+			<p>CSS images will usually require some work, all CSS images must have a suitable <code>background-size</code> property to work correctly. Below are three of the simplest methods to contain your retina background images.</p>
 			<div class="row setupcss">
 				<div class="span4">
 					<h3>CSS Background Images</h3>
-					<p>All CSS images must have a suitable <code>background-size</code> property.</p>
+					<p>A static pixel value equal to the size of the regular (non-retina) image.</p>
 					<pre class="prettyprint">.some-selector {
     background-image: url("my-image.png");
     -webkit-background-size: 300px 90px;
@@ -195,41 +195,29 @@
             background-size: 300px 90px;
 }</pre>
 				</div>
-				<div class="span4">
+				<div class="span8 row">
 					<h3>Image Replacement</h3>
-					<p>If the (standard size) image is the same size as the box you may use the following for convenience.</p>
-					<pre class="prettyprint">.some-selector {
+					<p>If the (standard size) image is the same size as the box you may either the following for convenience as they will product the same result.</p>
+					<div class="row">
+						<div class="span4">
+							<pre class="prettyprint">.some-selector {
     background-image: url("my-image.png");
     -webkit-background-size: 100% 100%;
        -moz-background-size: 100% 100%;
          -o-background-size: 100% 100%;
             background-size: 100% 100%;
-}
-/* OR ----------------------------------*/
-.some-selector {
+}</pre>
+						</div>
+						<div class="span4">
+							<pre class="prettyprint">.some-selector {
     background-image: url("my-image.png");
     -webkit-background-size: cover;
        -moz-background-size: cover;
          -o-background-size: cover;
             background-size: cover;
 }</pre>
-				</div>
-				<div class="span4">
-					<h3>Background Pattern</h3>
-					<p>If the image is being used as a repeating pattern you may use the following for convenience.</p>
-					<p><span class="label label-info">Note:</span>  Don't forget the media queries.</p>
-					<pre class="prettyprint">@media (
-only screen and (-moz-min-device-pixel-ratio: 2),
-only screen and (-o-min-device-pixel-ratio: 2/1),
-only screen and (-webkit-min-device-pixel-ratio: 2),
-only screen and (min-device-pixel-ratio: 2)) {
-    .retina-background {
-        -webkit-background-size: 50% 50%;
-           -moz-background-size: 50% 50%;
-             -o-background-size: 50% 50%;
-                background-size: 50% 50%;
-    }
-}</pre>
+						</div>
+					</div>
 				</div>
 			</div>
 		</section>
