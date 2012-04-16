@@ -16,7 +16,20 @@
 
 /* Body and structure
 -------------------------------------------------- */
+html {
+	background: url("../img/background.png") repeat;
+	-webkit-background-size: 101px 69px;
+	   -moz-background-size: 101px 69px;
+	     -o-background-size: 101px 69px;
+	        background-size: 101px 69px;
+}
 body {
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(255,255,255,0)), color-stop(13%, rgba(255,255,255,1))); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 500px); /* Chrome10+,Safari5.1+ */
+	background:	-moz-linear-gradient(top, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 500px); /* FF3.6+ */
+	background:	 -ms-linear-gradient(top, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 500px); /* IE10+ */
+	background:	  -o-linear-gradient(top, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 500px); /* Opera 11.10+ */
+	background:		 linear-gradient(top, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 500px); /* W3C */
 	padding-top: 90px;
 	position: relative;
 }
@@ -66,7 +79,7 @@ dl {
 	text-shadow: 0 1px 0 rgba(255,255,255,.1), 0 0 30px rgba(255,255,255,.125);
 	-webkit-transition: all .2s linear;
 	   -moz-transition: all .2s linear;
-	        transition: all .2s linear;
+			transition: all .2s linear;
 }
 	.navbar-fixed-top .brand:hover {
 		color: #1a1a1a;
@@ -99,7 +112,7 @@ header {
 	header .btn-large {
 		-webkit-border-radius: 6px;
 		   -moz-border-radius: 6px;
-		        border-radius: 6px;
+				border-radius: 6px;
 		font-size: 20px;
 		font-weight: normal;
 		margin-right: 10px;
@@ -114,6 +127,7 @@ header {
 -------------------------------------------------- */
 .bs-links {
 	margin: 36px 0 0 -60px;
+	overflow: hidden;
 }
 .quick-links {
 	min-height: 30px;
@@ -174,9 +188,9 @@ hr.soften {
 	height: 1px;
 	margin: 54px 0;
 	background-image: -webkit-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,.1), rgba(0,0,0,0));
-	background-image:    -moz-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,.1), rgba(0,0,0,0));
-	background-image:     -ms-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,.1), rgba(0,0,0,0));
-	background-image:      -o-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,.1), rgba(0,0,0,0));
+	background-image:	-moz-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,.1), rgba(0,0,0,0));
+	background-image:	 -ms-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,.1), rgba(0,0,0,0));
+	background-image:	  -o-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,.1), rgba(0,0,0,0));
 	border: 0;
 }
 
@@ -242,10 +256,10 @@ pre.prettyprint {
 .iphone,
 .iphone:before,
 .iphone:after {
-	-webkit-background-size: 100% 100%;               /* Safari 3.0 */
-	   -moz-background-size: 100% 100%;               /* Gecko 1.9.2 (Firefox 3.6) */
-	     -o-background-size: 100% 100%;               /* Opera 9.5 */
-	        background-size: 100% 100%;               /* Gecko 2.0 (Firefox 4.0) and other CSS3-compliant browsers */
+	-webkit-background-size: 100% 100%;			   /* Safari 3.0 */
+	   -moz-background-size: 100% 100%;			   /* Gecko 1.9.2 (Firefox 3.6) */
+		 -o-background-size: 100% 100%;			   /* Opera 9.5 */
+			background-size: 100% 100%;			   /* Gecko 2.0 (Firefox 4.0) and other CSS3-compliant browsers */
 	background-repeat: no-repeat;
 }
 .backgroundsize .iphone {
