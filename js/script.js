@@ -88,9 +88,16 @@ $('#shareme').sharrre({
 		pinterest: false
 	},
 	buttons: {
-		googlePlus: {size: 'medium'},
-		facebook: {layout: 'button_count'},
-		twitter: {count: 'horizontal'}
+		twitter: {
+			count: 'horizontal',
+			via: 'jeremyworboys'
+		},
+		facebook: {
+			layout: 'button_count'
+		},
+		googlePlus: {
+			size: 'medium'
+		}
 	},
 	enableHover: false,
 	enableCounter: false,
