@@ -78,24 +78,19 @@ if (Modernizr.touch) {
 
 $('#shareme').sharrre({
 	share: {
-		googlePlus: true,
-		facebook: true,
 		twitter: true,
-		digg: true,
-		delicious: true,
-		stumbleupon: true,
-		linkedin: true,
-		pinterest: true
+		facebook: true,
+		googlePlus: true,
+		digg: false,
+		delicious: false,
+		stumbleupon: false,
+		linkedin: false,
+		pinterest: false
 	},
 	buttons: {
-		googlePlus: {size: 'tall'},
-		facebook: {layout: 'box_count'},
-		twitter: {count: 'vertical'},
-		digg: {type: 'DiggMedium'},
-		delicious: {size: 'tall'},
-		stumbleupon: {layout: '5'},
-		linkedin: {counter: 'top'},
-		pinterest: {media: 'http://sharrre.com/img/example1.png', description: $('#shareme').data('text'), layout: 'vertical'}
+		googlePlus: {size: 'medium'},
+		facebook: {layout: 'button_count'},
+		twitter: {count: 'horizontal'}
 	},
 	enableHover: false,
 	enableCounter: false,
