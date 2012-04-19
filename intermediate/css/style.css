@@ -210,6 +210,11 @@ footer {
 
 /* Pretty code
 -------------------------------------------------- */
+pre {
+	overflow: auto;
+	word-break: inherit;
+	word-wrap: inherit;
+}
 pre.prettyprint {
 	background-color: #f7f7f9;
 	border: 1px solid #e1e1e8;
