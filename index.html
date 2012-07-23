@@ -41,7 +41,7 @@
 	</script>
 </head>
 <body id="home" onload="prettyPrint();" data-spy="scroll">
-	<noscript><style id="devicePixelRatio" media="only screen and (-moz-min-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2/1), only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min-device-pixel-ratio: 2)">#devicePixelRatio{background-image:url("retinaimages.php?devicePixelRatio=2")}</style></noscript>
+	<noscript><style id="devicePixelRatio" media="only screen and (-moz-min-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2/1), only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min-device-pixel-ratio: 2)">#devicePixelRatio{background-image:url("/retinaimages.php?devicePixelRatio=2")}</style></noscript>
 	<!-- Prompt IE 6 users to install Chrome Frame. Remove this if you support IE 6.
 			 chromium.org/developers/how-tos/chrome-frame-getting-started -->
 	<!--[if lt IE 7]><p class=chromeframe>Your browser is <em>ancient!</em> <a href="http://browsehappy.com/">Upgrade to a different browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to experience this site.</p><![endif]-->
@@ -163,7 +163,7 @@
 				<li><p>In the <code>&lt;head></code> section of each page <strong>before any CSS</strong> put the following JavaScript: </p>
 <pre class="prettyprint">&lt;script>document.cookie='devicePixelRatio='+((window.devicePixelRatio === undefined) ? 1 : window.devicePixelRatio)+'; path=/';&lt;/script></pre></li>
 				<li><p>Straight after your opening <code>&lt;body></code> tag put the following CSS: </p>
-<pre class="prettyprint">&lt;noscript>&lt;style id="devicePixelRatio" media="only screen and (-moz-min-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2/1), only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min-device-pixel-ratio: 2)">#devicePixelRatio{background-image:url("retinaimages.php?devicePixelRatio=2")}&lt;/style>&lt;/noscript></pre>
+<pre class="prettyprint">&lt;noscript>&lt;style id="devicePixelRatio" media="only screen and (-moz-min-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2/1), only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min-device-pixel-ratio: 2)">#devicePixelRatio{background-image:url("/retinaimages.php?devicePixelRatio=2")}&lt;/style>&lt;/noscript></pre>
 					<p><span class="label label-info">Note:</span> This must go inside the body tag.</p>
 				<li><p>For every image that you would like to have served at high-res, create an image at twice the size and save it with <code>@2x</code> at the end of the filename (before the file extension). <a href="#fileexample">See the example</a>.</p></li>
 			</ol>
