@@ -20,7 +20,7 @@
     <meta name="keywords" content="retina images, iphone 4, iphone 4s, new ipad, retina, high res, hi res, high resolution, high dpi, website, images">
     <meta name="author" content="Jeremy Worboys">
 
-	<script>document.cookie='devicePixelRatio='+((window.devicePixelRatio === undefined) ? 1 : window.devicePixelRatio)+'; path=/';</script>
+	<script>(function(w){var dpr=((w.devicePixelRatio===undefined)?1:w.devicePixelRatio);if(!!w.navigator.standalone){var r=new XMLHttpRequest();r.open('GET','/retinaimages.php?devicePixelRatio='+dpr,false);r.send()}else{document.cookie='devicePixelRatio='+dpr+'; path=/'}})(window)</script>
 
 	<link rel="stylesheet" href="css/style.css">
 
@@ -161,7 +161,7 @@
 				<li><p>Drop the <code>retinaimages.php</code> and <code>.htaccess</code> file into your document-root (usually <code>public_html</code>).</p>
 					<p><span class="label label-important">Warning!</span> <strong>Do not overwrite a this file if it already exists</strong>, simply copy the contents into your existing one.</p></li>
 				<li><p>In the <code>&lt;head></code> section of each page <strong>before any CSS</strong> put the following JavaScript: </p>
-<pre class="prettyprint">&lt;script>document.cookie='devicePixelRatio='+((window.devicePixelRatio === undefined) ? 1 : window.devicePixelRatio)+'; path=/';&lt;/script></pre></li>
+<pre class="prettyprint">&lt;script>(function(w){var dpr=((w.devicePixelRatio===undefined)?1:w.devicePixelRatio);if(!!w.navigator.standalone){var r=new XMLHttpRequest();r.open('GET','/retinaimages.php?devicePixelRatio='+dpr,false);r.send()}else{document.cookie='devicePixelRatio='+dpr+'; path=/'}})(window)&lt;/script></pre></li>
 				<li><p>Straight after your opening <code>&lt;body></code> tag put the following CSS: </p>
 <pre class="prettyprint">&lt;noscript>&lt;style id="devicePixelRatio" media="only screen and (-moz-min-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2/1), only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min-device-pixel-ratio: 2)">#devicePixelRatio{background-image:url("/retinaimages.php?devicePixelRatio=2")}&lt;/style>&lt;/noscript></pre>
 					<p><span class="label label-info">Note:</span> This must go inside the body tag.</p>
