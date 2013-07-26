@@ -160,11 +160,9 @@
 			<ol>
 				<li><p>Drop the <code>retinaimages.php</code> and <code>.htaccess</code> file into your document-root (usually <code>public_html</code>).</p>
 					<p><span class="label label-important">Warning!</span> <strong>Do not overwrite a this file if it already exists</strong>, simply copy the contents into your existing one.</p></li>
-				<li><p>In the <code>&lt;head></code> section of each page <strong>before any CSS</strong> put the following JavaScript: </p>
-<pre class="prettyprint">&lt;script>(function(w){var dpr=((w.devicePixelRatio===undefined)?1:w.devicePixelRatio);if(!!w.navigator.standalone){var r=new XMLHttpRequest();r.open('GET','/retinaimages.php?devicePixelRatio='+dpr,false);r.send()}else{document.cookie='devicePixelRatio='+dpr+'; path=/'}})(window)&lt;/script></pre></li>
-				<li><p>Straight after your opening <code>&lt;body></code> tag put the following CSS: </p>
-<pre class="prettyprint">&lt;noscript>&lt;style id="devicePixelRatio" media="only screen and (-moz-min-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2/1), only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min-device-pixel-ratio: 2)">#devicePixelRatio{background-image:url("/retinaimages.php?devicePixelRatio=2")}&lt;/style>&lt;/noscript></pre>
-					<p><span class="label label-info">Note:</span> This must go inside the body tag.</p>
+				<li><p>In the <code>&lt;head></code> section of each page <strong>before any CSS</strong> put the following: </p>
+<pre class="prettyprint">&lt;script>(function(w){var dpr=((w.devicePixelRatio===undefined)?1:w.devicePixelRatio);if(!!w.navigator.standalone){var r=new XMLHttpRequest();r.open('GET','/retinaimages.php?devicePixelRatio='+dpr,false);r.send()}else{document.cookie='devicePixelRatio='+dpr+'; path=/'}})(window)&lt;/script>
+&lt;noscript>&lt;style id="devicePixelRatio" media="only screen and (-moz-min-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2/1), only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min-device-pixel-ratio: 2)">html{background-image:url("/retinaimages.php?devicePixelRatio=2")}&lt;/style>&lt;/noscript></pre></li>
 				<li><p>For every image that you would like to have served at high-res, create an image at twice the size and save it with <code>@2x</code> at the end of the filename (before the file extension). <a href="#fileexample">See the example</a>.</p></li>
 			</ol>
 		</section>
