@@ -1,19 +1,25 @@
 <?php
 
-    /* Version: 1.3.1 - now with better cache */
+    /* Version: 1.6.0 - now with more pixels */
 
     define('DEBUG',              false);    // Write debugging information to a log file
     define('SEND_ETAG',          true);     // You will want to disable this if you load balance multiple servers
-    define('SEND_EXPIRES',       true);     //
-    define('SEND_CACHE_CONTROL', true);     //
-    define('CACHE_TIME',         24*60*60); // default: 1 day
+    define('SEND_EXPIRES',       true);
+    define('SEND_CACHE_CONTROL', true);
+    define('USE_X_SENDFILE',     false);    // This will reduce memory usage, but isn't enabled on all systems. If you have issues enabling this setting, contact your host
+    define('DOWNSIZE_NOT_FOUND', true);     // If a regular image is requested and not found, send a retina file instead?
+    define('CACHE_TIME',         24*60*60); // 1 day
+    define('DISABLE_RI_HEADER',  false);
 
-    $document_root  = $_SERVER['DOCUMENT_ROOT'];
-    $requested_uri  = parse_url(urldecode($_SERVER['REQUEST_URI']), PHP_URL_PATH);
-    $requested_file = basename($requested_uri);
-    $source_file    = $document_root.$requested_uri;
-    $source_ext     = strtolower(pathinfo($source_file, PATHINFO_EXTENSION));
+    $document_root   = $_SERVER['DOCUMENT_ROOT'];
+    $requested_uri   = parse_url(urldecode($_SERVER['REQUEST_URI']), PHP_URL_PATH);
+    $requested_file  = basename($requested_uri);
+    $source_file     = $document_root.$requested_uri;
+    $source_ext      = strtolower(pathinfo($source_file, PATHINFO_EXTENSION));
+    $at2x_file       = pathinfo($source_file, PATHINFO_DIRNAME).'/'.pathinfo($source_file, PATHINFO_FILENAME).'@2x.'.pathinfo($source_file, PATHINFO_EXTENSION);
+    $at3x_file       = pathinfo($source_file, PATHINFO_DIRNAME).'/'.pathinfo($source_file, PATHINFO_FILENAME).'@3x.'.pathinfo($source_file, PATHINFO_EXTENSION);
     $cache_directive = 'must-revalidate';
+    $status          = 'regular image';
 
     if (DEBUG) {
         $_debug_fh = fopen('retinaimages.log', 'a');
@@ -24,6 +30,8 @@
         fwrite($_debug_fh, "requested_file:    {$requested_file}\n");
         fwrite($_debug_fh, "source_file:       {$source_file}\n");
         fwrite($_debug_fh, "source_ext:        {$source_ext}\n");
+        fwrite($_debug_fh, "@2x_file:          {$at2x_file}\n");
+        fwrite($_debug_fh, "@3x_file:          {$at3x_file}\n");
     }
 
     // Image was requested
@@ -33,21 +41,62 @@
         $cookie_value = false;
         if (isset($_COOKIE['devicePixelRatio'])) {
             $cookie_value = intval($_COOKIE['devicePixelRatio']);
+        }
+        else {
             // Force revalidation of cache on next request
             $cache_directive = 'no-cache';
+            $status = 'no cookie';
+        }
+        if (DEBUG) {
+            fwrite($_debug_fh, "devicePixelRatio:  {$cookie_value}\n");
+            fwrite($_debug_fh, "cache_directive:   {$cache_directive}\n");
         }
 
-        // Check if DPR is high enough to warrant retina image
-        if (DEBUG) { fwrite($_debug_fh, "devicePixelRatio:  {$cookie_value}\n"); }
-        if ($cookie_value !== false && $cookie_value > 1) {
+        // Check if DPR is high enough to warrant 3x image
+        if ($cookie_value !== false && $cookie_value > 2) {
             // Check if retina image exists
-            $retina_file = pathinfo($source_file, PATHINFO_DIRNAME).'/'.pathinfo($source_file, PATHINFO_FILENAME).'@2x.'.pathinfo($source_file, PATHINFO_EXTENSION);
-            if (DEBUG) { fwrite($_debug_fh, "retina_file:       {$retina_file}\n"); }
-            if (file_exists($retina_file)) {
-                $source_file = $retina_file;
+            if (file_exists($at3x_file)) {
+                $source_file = $at3x_file;
+                $status = 'retina image';
+            }
+        }
+        // Check if DPR is high enough to warrant 2x image
+        elseif ($cookie_value !== false && $cookie_value > 1) {
+            // Check if retina image exists
+            if (file_exists($at2x_file)) {
+                $source_file = $at2x_file;
+                $status = 'retina image';
             }
         }
 
+        // Check if we can shrink a larger version of the image
+        if (!file_exists($source_file) && DOWNSIZE_NOT_FOUND && ($source_file !== $at2x_file)) {
+            // Check if retina image exists
+            if (file_exists($at2x_file)) {
+                $source_file = $at2x_file;
+                $status = 'downsized image';
+            }
+        }
+        // Check if we can shrink a larger version of the image
+        elseif (!file_exists($source_file) && DOWNSIZE_NOT_FOUND && ($source_file !== $at3x_file)) {
+            // Check if retina image exists
+            if (file_exists($at3x_file)) {
+                $source_file = $at3x_file;
+                $status = 'downsized image';
+            }
+        }
+
+        // Check if the image to send exists
+        if (!file_exists($source_file)) {
+            if (DEBUG) { fwrite($_debug_fh, "Image not found. Sending 404\n"); }
+            header('HTTP/1.1 404 Not Found', true);
+            exit();
+        }
+
+        // Attach a Retina Images header for debugging
+        if (!DISABLE_RI_HEADER) {
+            header('X-Retina-Images: '.$status);
+        }
 
         // Send cache headers
         if (SEND_CACHE_CONTROL) {
@@ -81,7 +130,7 @@
         }
 
         // Send image headers
-        if (in_array($source_ext, array('png', 'gif', 'jpeg', 'bmp'))) {
+        if (in_array($source_ext, ['png', 'gif', 'jpeg', 'bmp'])) {
             header("Content-Type: image/".$source_ext, true);
         }
         else {
@@ -96,7 +145,12 @@
         }
 
         // Send file
-        readfile($source_file);
+        if (USE_X_SENDFILE) {
+            header('X-Sendfile: '.$source_file);
+        }
+        else {
+            readfile($source_file);
+        }
         exit();
     }
 
@@ -105,7 +159,7 @@
         $dpr = $_GET['devicePixelRatio'];
 
         // Validate value before setting cookie
-        if (''.intval($dpr) !== $dpr) {
+        if (''.ceil(intval($dpr)) !== $dpr) {
             $dpr = '1';
         }
 
