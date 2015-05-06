@@ -1,34 +1,20 @@
 <!doctype html>
-
-<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=en><![endif]-->
-<!--[if IE 7]><html class="no-js lt-ie9 lt-ie8" lang=en><![endif]-->
-<!--[if IE 8]><html class="no-js lt-ie9" lang=en><![endif]-->
-
-<!--[if gt IE 8]><!--> <html class=no-js lang=en> <!--<![endif]-->
+<html class=no-js lang=en>
 <head>
 	<meta charset=utf-8>
-
-
-	<meta http-equiv=X-UA-Compatible content="IE=edge,chrome=1">
+	<meta http-equiv=X-UA-Compatible content="IE=edge">
 
 	<title>Retina Images</title>
     <meta name=viewport content="width=device-width, initial-scale=1.0">
     <meta property="fb:admins" content=1206001117>
     <meta name=google-site-verification content=ZChUvbnrem_S4PxM6izeLnjRgBKXUp0OIknaZqjo8U8>
     <meta name=description content="Retina Images serves different images based on the device being used by the viewer, all you have to do is create a high-res version of each image.">
-    <meta name=keywords content="retina images, iphone 4, iphone 4s, iphone 5, iphone 5s, iphone 5c, new ipad, ipad, retina, high res, hi res, high resolution, high dpi, website, images">
     <meta name=author content="Jeremy Worboys">
 
 	<script>(function(w){var dpr=((w.devicePixelRatio===undefined)?1:w.devicePixelRatio);if(!!w.navigator.standalone){var r=new XMLHttpRequest();r.open('GET','/retinaimages.php?devicePixelRatio='+dpr,false);r.send()}else{document.cookie='devicePixelRatio='+dpr+'; path=/'}})(window)</script>
 
 	<link rel=stylesheet href='css/e09a8cf.css'>
-
-
-
-
 	<script src="js/libs/modernizr-2.5.3.min.js"></script>
-
-
 	<script>
 		var _gaq=[['_setAccount','UA-30234355-1'],['_trackPageview']];
 		(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
@@ -38,8 +24,6 @@
 </head>
 <body id=home onload="prettyPrint();" data-spy=scroll>
 	<noscript><style id=devicePixelRatio media="only screen and (-moz-min-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2/1), only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min-device-pixel-ratio: 2)">#devicePixelRatio{background-image:url("/retinaimages.php?devicePixelRatio=2")}</style></noscript>
-
-	<!--[if lt IE 7]><p class=chromeframe>Your browser is <em>ancient!</em> <a href="http://browsehappy.com/">Upgrade to a different browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to experience this site.</p><![endif]-->
 
 	<div id=navbar class="navbar navbar-fixed-top">
 		<div class=navbar-inner>
@@ -69,14 +53,13 @@
 	</div>
 
 	<div class=container>
-
 		<header>
 			<div class=inner>
 				<h1>Retina Images</h1>
 				<p>Automatically serve high-res images, to those who'll appreciate them.</p>
 				<p class=download-info>
 					<a href="https://github.com/Retina-Images/Retina-Images/" onClick="javascript: _gaq.push(['_trackPageview', '/GH/view']);" class="btn btn-primary btn-large">View project <span class=hidden-phone>on GitHub</span></a>
-					<a href="https://github.com/Retina-Images/Retina-Images/zipball/master" onClick="javascript: _gaq.push(['_trackPageview', '/GH/zipball']);" class="btn btn-large">Download <span class=hidden-phone>Retina Images</span> <small>(v1.6.1)</small></a>
+					<a href="https://github.com/Retina-Images/Retina-Images/zipball/master" onClick="javascript: _gaq.push(['_trackPageview', '/GH/zipball']);" class="btn btn-large">Download <span class=hidden-phone>Retina Images</span> <small>(v1.7.0)</small></a>
 				</p>
 			</div>
 
@@ -94,7 +77,6 @@
 		<hr id=about class=soften>
 
 		<section>
-
 			<figure class="iphone-demo pull-right visible-desktop">
 				<div class=iphone></div>
 				<figcaption>
@@ -124,7 +106,6 @@
 					</figure>
 				</div>
 			</div>
-
 		</section>
 
 		<hr id=works class=soften>
@@ -135,7 +116,7 @@
 			<ol>
 				<li><p>When the page loads on the viewers device, a cookie holding the <code>devicePixelRatio</code> is set by either JavaScript or CSS (if JS is disabled).</p></li>
 				<li><p>When an image is requested by the server, the <code>.htaccess</code> file tells <code>retinaimages.php</code> to serve the image instead.</p></li>
-				<li><p><code>retinaimages.php</code> then checks for the following conditions: </p>
+				<li><p><code>retinaimages.php</code> then checks for the following conditions:</p>
 					<ul>
 						<li><p>A cookie holding <code>devicePixelRatio</code> exists.</p></li>
 						<li><p>The value set in the cookie is greater than 1.</p></li>
@@ -155,8 +136,8 @@
 			<ol>
 				<li><p>Drop the <code>retinaimages.php</code> and <code>.htaccess</code> file into your document-root (usually <code>public_html</code>).</p>
 					<p><span class="label label-important">Warning!</span> <strong>Do not overwrite a this file if it already exists</strong>, simply copy the contents into your existing one.</p></li>
-				<li><p>In the <code>&lt;head></code> section of each page <strong>before any CSS</strong> put the following: </p>
-<pre class=prettyprint>&lt;script>(function(w){var dpr=((w.devicePixelRatio===undefined)?1:w.devicePixelRatio);if(!!w.navigator.standalone){var r=new XMLHttpRequest();r.open('GET','/retinaimages.php?devicePixelRatio='+dpr,false);r.send()}else{document.cookie='devicePixelRatio='+dpr+'; path=/'}})(window)&lt;/script>
+				<li><p>In the <code>&lt;head></code> section of each page <strong>before any CSS</strong> put the following:</p>
+					<pre class=prettyprint>&lt;script>(function(w){var dpr=((w.devicePixelRatio===undefined)?1:w.devicePixelRatio);if(!!w.navigator.standalone){var r=new XMLHttpRequest();r.open('GET','/retinaimages.php?devicePixelRatio='+dpr,false);r.send()}else{document.cookie='devicePixelRatio='+dpr+'; path=/'}})(window)&lt;/script>
 &lt;noscript>&lt;style id="devicePixelRatio" media="only screen and (-moz-min-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2/1), only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min-device-pixel-ratio: 2)">html{background-image:url("/retinaimages.php?devicePixelRatio=2")}&lt;/style>&lt;/noscript></pre></li>
 				<li><p>For every image that you would like to have served at high-res, create an image at twice the size and save it with <code>@2x</code> at the end of the filename (before the file extension). <a href="#fileexample">See the example</a>.</p></li>
 			</ol>
@@ -279,7 +260,7 @@
 
 		<section class=thanks>
 			<p class="pull-right back-to-top"><a href="#home">Back to top</a></p>
-			<h1><small>So Long, and </small>Thanks<small> for All the Fish</small></h1>
+			<h1><small>So Long, and</small> Thanks <small>for All the Fish</small></h1>
 			<div class=row>
 				<div class=span6>
 					<dl>
@@ -313,13 +294,8 @@
 	</div>
 
 
-
-
-
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 	<script>window.jQuery || document.write('<script src="js/libs/jquery-1.7.1.min.js"><\/script>')</script>
-
 	 <script src='js/623df3b.js'></script>
-
 </body>
 </html>
