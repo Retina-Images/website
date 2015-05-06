@@ -4,7 +4,7 @@
 
 /* TEAM */
   Developer: Jeremy Worboys
-  Site: http://complexcompulsions.com
+  Site: http://jeremyworboys.com
   Twitter: @jeremyworboys
   Location: Dubbo, NSW Australia
 
